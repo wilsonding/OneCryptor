@@ -3,6 +3,6 @@
  */
 public class Library {
     public boolean someLibraryMethod() {
-        return 1 > 2;
+        return true;
     }
 }
