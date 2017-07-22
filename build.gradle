@@ -7,9 +7,10 @@
  */
 
 // Apply the java-library plugin to add support for Java Library
-apply plugin: 'java-library'
+apply plugin: 'java'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'war'
+//apply plugin: 'jetty'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -20,7 +21,7 @@ repositories {
 
 dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
+   // api 'org.apache.commons:commons-math3:3.6.1'
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:21.0'
@@ -33,5 +34,30 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+}
+
+// Embeded Jetty for testing
+/*jettyRun{
+	contextPath = "spring4"
+	httpPort = 8080
+}
+
+jettyRunWar{
+	contextPath = "spring4"
+	httpPort = 8080
+}*/
+
+//For Eclipse IDE only
+eclipse {
+
+  wtp {
+    component {
+      
+      //define context path, default to project folder name
+      contextPath = 'OneCryptor'
+      
+    }
+    
+  }
 }
 
