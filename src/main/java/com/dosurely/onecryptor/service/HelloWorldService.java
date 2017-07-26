@@ -3,16 +3,18 @@ package com.dosurely.onecryptor.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.dosurely.onecryptor.dao.UserDao;
+import com.dosurely.onecryptor.dao.UserDaoImpl;
 import com.dosurely.onecryptor.entity.User;
 
 @Service
 public class HelloWorldService {
-	@Autowired
-	UserDao userDao;
+	UserDaoImpl userDao;
 
 	private static final Logger logger = LoggerFactory.getLogger(HelloWorldService.class);
 
@@ -31,8 +33,12 @@ public class HelloWorldService {
 		if(StringUtils.isEmpty(name)){
 			return "Hello World";
 		}else{
+			ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("/WEB-INF/config/applicationContext.xml");
+			UserDao userDao = (UserDao) context.getBean("userDao");
 			User user = userDao.findByName(name);
-			return "Hello " + name + ", your password is: " + user.getPassword();
+			String password = user.getPassword();
+			
+			return "Hello " + name + ", your password is: " + password;
 		}
 		
 	}

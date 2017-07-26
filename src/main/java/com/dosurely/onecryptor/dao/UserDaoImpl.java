@@ -8,6 +8,8 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.springframework.stereotype.Component;
+
 import com.dosurely.onecryptor.entity.User;
 
 public class UserDaoImpl implements UserDao {
