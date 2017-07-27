@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User findByName(String name) {
-		String sql = "select * from user where name = ?";
+		String sql = "select * from users where name = ?";
 		 Connection conn = null;
 		 User user = null;
 		 try {

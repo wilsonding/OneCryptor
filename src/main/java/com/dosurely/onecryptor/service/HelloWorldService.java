@@ -14,7 +14,15 @@ import com.dosurely.onecryptor.entity.User;
 
 @Service
 public class HelloWorldService {
-	UserDaoImpl userDao;
+	private UserDaoImpl userDao;
+
+	public UserDaoImpl getUserDao() {
+		return userDao;
+	}
+
+	public void setUserDao(UserDaoImpl userDao) {
+		this.userDao = userDao;
+	}
 
 	private static final Logger logger = LoggerFactory.getLogger(HelloWorldService.class);
 
@@ -33,7 +41,7 @@ public class HelloWorldService {
 		if(StringUtils.isEmpty(name)){
 			return "Hello World";
 		}else{
-			ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("/WEB-INF/config/applicationContext.xml");
+			ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 			UserDao userDao = (UserDao) context.getBean("userDao");
 			User user = userDao.findByName(name);
 			String password = user.getPassword();

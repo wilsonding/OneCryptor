@@ -33,9 +33,15 @@ dependencies {
     compile 'javax.servlet:javax.servlet-api:4.0.0-b07'
     
     // https://mvnrepository.com/artifact/org.springframework/spring-jdbc
-compile group: 'org.springframework', name: 'spring-jdbc', version: '4.1.16.RELEASE'
+compile group: 'org.springframework', name: 'spring-jdbc', version: '4.1.6.RELEASE'
 // https://mvnrepository.com/artifact/mysql/mysql-connector-java
 compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+// https://mvnrepository.com/artifact/org.springframework/spring-beans
+compile group: 'org.springframework', name: 'spring-beans', version: '4.1.6.RELEASE'
+// https://mvnrepository.com/artifact/org.springframework/spring-tx
+compile group: 'org.springframework', name: 'spring-tx', version: '4.1.6.RELEASE'
+
+
 
     
 

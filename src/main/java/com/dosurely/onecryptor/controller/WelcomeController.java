@@ -21,6 +21,7 @@ import com.dosurely.onecryptor.service.HelloWorldService;
 public class WelcomeController {
 
 	private final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
+	@Autowired
 	private final HelloWorldService helloWorldService;
 
 	@Autowired
